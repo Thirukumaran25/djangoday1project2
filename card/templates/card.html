@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card card-container">
+    <div class="card-body text-center">
+        <img src="{% static user.image_url %}" alt="Profile Image" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+        <h1 class="card-title">{{ user.name }}</h1>
+        <h5 class="card-subtitle mb-2 text-muted">{{ user.title }}</h5>
+        <p class="card-text">{{ user.bio }}</p>
+        <hr>
+        <div class="d-grid gap-2">
+            <a href="mailto:{{ user.email }}" class="btn btn-primary">
+                Email: {{ user.email }}
+            </a>
+            <a href="tel:{{ user.phone }}" class="btn btn-secondary">
+                Phone: {{ user.phone }}
+            </a>
+            <a href="{{ user.linkedin }}" target="_blank" class="btn btn-info text-white">
+                LinkedIn Profile
+            </a>
+            <a href="{{ user.github }}" target="_blank" class="btn btn-dark">
+                GitHub Profile
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
